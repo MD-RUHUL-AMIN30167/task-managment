@@ -1,0 +1,48 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <h1 class="bg">hello world</h1>
+    <img src="{% static 'images/myphoto.jpg' %}" alt="">
+
+
+    <h1 class="text-red-500 text-lg">hello world</h1>
+    <h1 class="text-red-500 text-lg">hello world</h1>
+
+    
+    {%for name in names%}
+        
+        <p>{{name}}</p>
+         
+        
+    {%endfor%}
+    <p>this count : {{count}}</p>
+
+    {% comment %} <ul class="bg-slate-500">
+    {% for name in names %}
+        <li>{{ name }}</li>
+    {% endfor %}
+    </ul>
+
+
+
+
+  <ul>
+  {% if names %}
+    {% for name in names %}
+      <li>{{ name }}</li>
+    {% endfor %}
+  {% else %}
+    <li>Sorry, no athletes in this list.</li>
+  {% endif %} {% endcomment %}
+
+</ul>
+</body>
+</html>

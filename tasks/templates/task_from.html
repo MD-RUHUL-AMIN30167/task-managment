@@ -1,0 +1,37 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="w-1/2 mx-auto mt-10 ">
+        
+        <div>
+            {% if messages %}
+              {% for message in messages %}
+                <div class="px-2 py-1 {% if message.tags == 'success'%}bg-green-500{% endif %}">
+                    {{message}}
+                </div>
+              {% endfor %}
+            {% endif %}
+        </div>
+            
+        <form method="POST">
+            {% comment %} <input type="text" class="border-2 border-gray-300 w-full rounded-full shadow-2xl text-center" 
+            placeholder="enter your title"> {% endcomment %}
+
+            {% csrf_token %}
+            {{task_form.as_p}}
+            {{task_details_form}}
+        
+            <button class="mb-20 mt-10 border-2 bg-red-700 text-white p-2 rounded-lg" type="submit">Submit</button>
+        </form>
+    
+    </div>
+
+</body>
+</html>
